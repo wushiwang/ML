@@ -1,9 +1,7 @@
 from sklearn.linear_model import LinearRegression, SGDRegressor, RidgeCV, LassoCV
 from sklearn.metrics import r2_score
-
-from boston_housing_price.feature.public_feature import DealData
 import pandas as pd
-import matplotlib.pyplot as plt
+from public_method.deal_data import DealData
 
 data = pd.read_csv('../origin_data/boston_housing.csv')
 feature = DealData(data)

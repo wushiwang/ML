@@ -1,14 +1,14 @@
 import os
 
 from PIL import Image
+from keras import Sequential
+from keras.callbacks import EarlyStopping, ModelCheckpoint
+from keras.layers import Conv2D, MaxPool2D, Dropout, Flatten, Dense
+from keras.utils import np_utils
 from keras_preprocessing.image import ImageDataGenerator
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
-from tensorflow.python.keras import Sequential
-from tensorflow.python.keras.callbacks import EarlyStopping, ModelCheckpoint
-from tensorflow.python.keras.layers import Conv2D, MaxPool2D, Dropout, Flatten, Dense
-from tensorflow.python.keras.utils import np_utils
 
 
 def resize_images(path1, path2):
@@ -39,7 +39,7 @@ if __name__ == '__main__':
     # 数据预处理
     path1 = 'G:\\web_devment\\ML\\knee\\origin_data'
     path2 = 'G:\\web_devment\\ML\\knee\\user_data'
-    resize_images(path1, path2)
+    # resize_images(path1, path2)
     img_mat = get_images(path2)
     li = np.array(transform_array(img_mat))
     num_samples = len(li)
